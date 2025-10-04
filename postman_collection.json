@@ -17,7 +17,8 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "body": {
                             "mode": "raw",
@@ -38,7 +39,8 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "body": {
                             "mode": "raw",
@@ -60,30 +62,13 @@
                                 "key": "Authorization",
                                 "value": "Bearer {{token}}",
                                 "type": "text"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "url": {
                             "raw": "{{base_url}}/api/auth/me",
                             "host": ["{{base_url}}"],
                             "path": ["api", "auth", "me"]
-                        }
-                    }
-                },
-                {
-                    "name": "Logout",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {{token}}",
-                                "type": "text"
-                            }
-                        ],
-                        "url": {
-                            "raw": "{{base_url}}/api/auth/logout",
-                            "host": ["{{base_url}}"],
-                            "path": ["api", "auth", "logout"]
                         }
                     }
                 }
@@ -100,7 +85,8 @@
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {{token}}"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "url": {
                             "raw": "{{base_url}}/api/projects",
@@ -121,7 +107,8 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "body": {
                             "mode": "raw",
@@ -131,6 +118,50 @@
                             "raw": "{{base_url}}/api/projects",
                             "host": ["{{base_url}}"],
                             "path": ["api", "projects"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Project",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            { "key": "Accept", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Proyecto Demo Editado\",\n  \"description\": \"Proyecto actualizado\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/projects/1",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "projects", "1"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Project",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            { "key": "Accept", "value": "application/json" }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/projects/1",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "projects", "1"]
                         }
                     }
                 }
@@ -147,7 +178,8 @@
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {{token}}"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "url": {
                             "raw": "{{base_url}}/api/projects/1/tasks",
@@ -168,7 +200,8 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "body": {
                             "mode": "raw",
@@ -182,6 +215,50 @@
                     }
                 },
                 {
+                    "name": "Update Task",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            { "key": "Accept", "value": "application/json" }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Tarea actualizada\",\n  \"description\": \"Descripción modificada\",\n  \"status\": \"in_progress\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/tasks/1",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "tasks", "1"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Task",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            { "key": "Accept", "value": "application/json" }
+                        ],
+                        "url": {
+                            "raw": "{{base_url}}/api/tasks/1",
+                            "host": ["{{base_url}}"],
+                            "path": ["api", "tasks", "1"]
+                        }
+                    }
+                },
+                {
                     "name": "Mark Task Complete",
                     "request": {
                         "method": "POST",
@@ -189,7 +266,8 @@
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {{token}}"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "url": {
                             "raw": "{{base_url}}/api/tasks/1/complete",
@@ -211,7 +289,8 @@
                             {
                                 "key": "Authorization",
                                 "value": "Bearer {{token}}"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "url": {
                             "raw": "{{base_url}}/api/tasks/1/comments",
@@ -232,7 +311,8 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
-                            }
+                            },
+                            { "key": "Accept", "value": "application/json" }
                         ],
                         "body": {
                             "mode": "raw",
